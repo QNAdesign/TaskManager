@@ -76,9 +76,13 @@ public class MainActivity extends Activity {
 							"Wrong email/password!",
 							Toast.LENGTH_LONG).show();
 				} else {
-					Toast.makeText(MainActivity.this,
-							"Login successful!",
-							Toast.LENGTH_LONG).show();
+					Intent intent = new Intent();
+					intent.setClass(MainActivity.this, Mainpage.class);
+					Bundle bundle = new Bundle();
+					bundle.putString("email",emailIn);
+					intent.putExtras(bundle);
+					
+					startActivity(intent);
 				}
 
 			}

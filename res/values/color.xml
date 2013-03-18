@@ -3,4 +3,6 @@
   <drawable name="black">#000000</drawable>
   <drawable name="white">#FFFFFF</drawable>
   <drawable name="gray">#00FFFF</drawable>
+  <drawable name="MediumBlue">#0000CD</drawable>
+  
 </resources>

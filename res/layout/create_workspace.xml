@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Workspace"
+        android:textColor="@drawable/MediumBlue"
+        android:textSize="40px"
+        android:typeface="monospace" />
+	
+	<EditText
+        android:id="@+id/workspaceName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:background="@drawable/gray"
+        android:textSize="35px"
+        android:layout_marginTop="70dp" />
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/textView1"
+	    android:layout_marginTop="26dp"
+	    android:text="Name:"
+	    android:textSize="35px" />
+
+	<Button
+	    android:id="@+id/create"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/workspaceName"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="48dp"
+	    android:text="Create" />
+
+"
+
+</RelativeLayout>

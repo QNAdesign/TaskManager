@@ -17,6 +17,10 @@ public class DB extends SQLiteOpenHelper{
 		// TODO Auto-generated method stub
 		db.execSQL("create table t_userInfo (_id integer primary key autoincrement, email varchar(50) unique not null, password varchar(50) not null)");
 		db.execSQL("insert into t_userInfo (email,password) values('zyc19890921@163.com','123456')");
+		db.execSQL("create table t_workspace (_workspaceID integer primary key autoincrement, userID integer, workspace_name varchar(10),FOREIGN KEY (userID) REFERENCES t_userInfo(_id))");
+		db.execSQL("insert into t_workspace (userID,workspace_name) values(1,'First workspace')");
+		db.execSQL("insert into t_workspace (userID,workspace_name) values(1,'Second workspace')");
+		
 	}
 
 	@Override
@@ -41,6 +45,36 @@ public class DB extends SQLiteOpenHelper{
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL("insert into t_userInfo(email,password) values('"
 				+ email + "','" + password + "')");
+	}
+	
+	
+	public Cursor findUserByEmail(String email){
+		SQLiteDatabase db = getReadableDatabase();
+		Cursor cursor = db.rawQuery("select * from t_userInfo where email ='"+ email +"'", null);
+		return cursor;
+	}
+	
+	
+	public Cursor findSpaceByUserID(int userID){
+		SQLiteDatabase db = getReadableDatabase();
+		Cursor cursor = db.rawQuery("select * from t_workspace where userID =" + userID, null);
+		return cursor;
+	}
+	
+	public void create(int userID,String name) {
+		SQLiteDatabase db = getWritableDatabase();
+		db.execSQL("insert into t_workspace(userID,workspace_name) values('"
+				+ userID + "','" + name + "')");
+	}
+	
+	public void update(int userID, String oldName, String newName){
+		SQLiteDatabase db = getWritableDatabase();
+		db.execSQL("update t_workspace set workspace_name = '" +newName+"' where userID = '"+userID+"' and workspace_name ='"+oldName+"'");
+	}
+	
+	public void delete(int userID,String name){
+		SQLiteDatabase db = getWritableDatabase();
+		db.execSQL("delete from t_workspace where userID = '"+userID+"' and workspace_name ='" + name + "'");
 	}
 
 }

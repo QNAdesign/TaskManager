@@ -22,7 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="RegisterActivity" android:label="RegisterActivity"></activity>
+        <activity
+            android:name="com.task.RegisterActivity"
+            android:label="RegisterActivity" >
+        </activity>
+        <activity
+            android:name="com.task.Mainpage"
+            android:label="Mainpage" >
+        </activity>
+        <activity
+            android:name="com.task.CreateWorkspace"
+            android:label="CreateWorkspace" >
+        </activity>
+        <activity
+            android:name="com.task.Editpage"
+            android:label="@string/title_activity_editpage" >
+        </activity>
     </application>
 
 </manifest>
