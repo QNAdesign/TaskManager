@@ -15,12 +15,16 @@ public class DB extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
-		db.execSQL("create table t_userInfo (_id integer primary key autoincrement, email varchar(50) unique not null, password varchar(50) not null)");
+		db.execSQL("create table t_userInfo (_userID integer primary key autoincrement, email varchar(50) unique not null, password varchar(50) not null)");
+		db.execSQL("create table t_workspace (_workspaceID integer primary key autoincrement, userID integer, workspace_name varchar(10),FOREIGN KEY (userID) REFERENCES t_userInfo(_userID))");
+		db.execSQL("create table t_sharedWorkspace (_shareID integer primary key autoincrement, workspaceID integer, userID integer, FOREIGN KEY (userID) REFERENCES t_userInfo(_userID), FOREIGN KEY (workspaceID) REFERENCES t_userInfo(_workspaceID))");
+		db.execSQL("create table t_project (_projectID integer primary key autoincrement, note varchar(1000), project_name varchar(10), workspaceID integer, userID integer, duedate_time datetime,time_flag varchar(15),FOREIGN KEY(workspaceID) REFERENCES t_workspace(_workspaceID), FOREIGN KEY(userID) REFERENCES t_userInfo(_userID))");
+		db.execSQL("create table t_setting (_userID integer primary key, autohide bit, theme integer, privacy char(10), FOREIGN KEY(userID) REFERENCES t_userInfo(_userID))");
+		db.execSQL("create table t_sharedProject (_shareID integer primary key autoincrement, userID integer, projectID integer, FOREIGN KEY(userID) REFERENCES t_userInfo(_userID), FOREIGN KEY(projectID) REFERENCES t_project(_projectID))");
+		db.execSQL("create table t_projectComment (_commentID integer primary key autoincrement, project_comment_text varchar(1000), projectID integer, FOREIGN KEY(projectID) REFERENCES t_project(_projectID))");
 		db.execSQL("insert into t_userInfo (email,password) values('zyc19890921@163.com','123456')");
-		db.execSQL("create table t_workspace (_workspaceID integer primary key autoincrement, userID integer, workspace_name varchar(10),FOREIGN KEY (userID) REFERENCES t_userInfo(_id))");
 		db.execSQL("insert into t_workspace (userID,workspace_name) values(1,'First workspace')");
 		db.execSQL("insert into t_workspace (userID,workspace_name) values(1,'Second workspace')");
-		db.execSQL("create table t_project (_projectID integer primary key autoincrement, note varchar(1000), project_name varchar(10), workspaceID integer, userID integer, duedate_time datetime,time_flag varchar(15),FOREIGN KEY(workspaceID) REFERENCES t_workspace(_workspaceID), FOREIGN KEY(userID) REFERENCES t_userInfo(_id))");
 		db.execSQL("insert into t_project (note,project_name,workspaceID,userID,duedate_time,time_flag) values ('this is a test','my first project',2,1,'2013-3-20 20:26','completed')");
 		db.execSQL("insert into t_project (note,project_name,workspaceID,userID,duedate_time,time_flag) values ('this is a test again','my second project',2,1,'2013-3-20 20:26','incomplete')");
 	}
