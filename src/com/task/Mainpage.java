@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.os.Bundle;
 import android.app.Activity;
@@ -185,6 +186,27 @@ public class Mainpage extends Activity {
 				return false;
 			}
 
+		});
+		
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				selectName = workspaces.get(position).get("name");
+				if (position == 1){
+					Intent intent = new Intent(Mainpage.this, WorkspaceContent.class);
+					Bundle bundle = new Bundle();
+					bundle.putInt("userID", userID);
+					bundle.putString("email", email);
+					bundle.putString("name", selectName);
+					intent.putExtras(bundle);
+					
+					startActivity(intent);
+				}
+				
+				
+			}
 		});
 
 	}

@@ -38,6 +38,14 @@
             android:name="com.task.Editpage"
             android:label="@string/title_activity_editpage" >
         </activity>
+        <activity
+            android:name="com.task.WorkspaceContent"
+            android:label="@string/title_activity_workspace_content" >
+        </activity>
+        <activity
+            android:name="com.task.CreateProject"
+            android:label="@string/title_activity_create_project" >
+        </activity>
     </application>
 
 </manifest>

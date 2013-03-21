@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="workspace">WORKSPACE</string>
     <string name="title_activity_editpage">Editpage</string>
+    <string name="title_activity_workspace_content">Task</string>
+    <string name="title_activity_create_project">Task</string>
 
 </resources>
