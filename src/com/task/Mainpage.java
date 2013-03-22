@@ -194,7 +194,7 @@ public class Mainpage extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
 				selectName = workspaces.get(position).get("name");
-				if (position == 1){
+				//if (position == 1){
 					Intent intent = new Intent(Mainpage.this, WorkspaceContent.class);
 					Bundle bundle = new Bundle();
 					bundle.putInt("userID", userID);
@@ -203,7 +203,7 @@ public class Mainpage extends Activity {
 					intent.putExtras(bundle);
 					
 					startActivity(intent);
-				}
+				//}
 				
 				
 			}
