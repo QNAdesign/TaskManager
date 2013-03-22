@@ -22,7 +22,23 @@
         android:background="@drawable/gray"
         android:textSize="35px"
         android:layout_marginTop="70dp" />
-
+	
+	 <TextView
+        android:id="@+id/address_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/workspaceName"
+        android:visibility="gone" />
+      
+	<Button
+	    android:id="@+id/add_location_button"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/workspaceName"
+	    android:text="@string/add_location_to_task" 
+	    android:onClick="addLocationButtonClicked"
+	    />
+	
 	<TextView
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
