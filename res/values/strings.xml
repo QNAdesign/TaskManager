@@ -8,5 +8,8 @@
     <string name="title_activity_editpage">Editpage</string>
     <string name="title_activity_workspace_content">Task</string>
     <string name="title_activity_create_project">Task</string>
-
+    <string name="title_activity_add_location_map">Task</string>
+	<string name="add_location_to_task">Add Location To Task</string>
+    <string name="map_this_address">Map this address</string>
+    <string name="use_this_location">Use this location</string>
 </resources>
